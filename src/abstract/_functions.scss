@@ -1,0 +1,181 @@
+//mixins and functions **
+
+@mixin resetAll {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none; /*firefox*/
+}
+
+//reset list
+@mixin resetList {
+    list-style: none;
+}
+
+//reset <a>
+@mixin resetLink($color) {
+    text-decoration: none;
+    color: $color;
+}
+
+// screen
+@mixin screenSize($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//display flex
+@mixin displayFlex($jty-cnt, $align-itm, $direction) {
+    display: flex;
+    justify-content: #{$jty-cnt};
+    align-items: #{$align-itm};
+    flex-direction: #{$direction};
+}
+
+//fontSize
+@function calculateRem($size) {
+    @return calc($size/16px) * 1rem;
+}
+
+@mixin fontSize($size) {
+    font-size: calculateRem($size);
+}
+
+//placeholder selector
+%invisible {
+    display: none;
+}
+
+%visible {
+    display: flex;
+}
+
+//Background Image - Cover
+@mixin backgroundImage($url) {
+    background-image: url($url);
+    background-size: cover;
+}
+
+//wrapper
+@mixin wrapperCenter($size, $direction) {
+    width: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+    margin: auto;
+}
+
+//title(XL)
+@mixin titleXL($align) {
+  text-align: $align;
+  font-size: 2.2em;
+  font-weight: 500;
+  font-size: 3em;
+
+}
+
+
+//title
+@mixin title($align) {
+    text-align: $align;
+    font-size: 2.2em;
+    font-weight: 500;
+    font-size: 48px;
+
+}
+
+//subtitle
+@mixin subtitle($align) {
+    text-align: $align;
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+//text
+@mixin text($align) {
+    text-align: $align;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+//font
+@mixin typography($fontSize, $align, $lineHeight, $weight) {
+    width: 100%;
+    font-size: $fontSize;
+    text-align: $align;
+    line-height: $lineHeight;
+    font-weight: $weight;
+}
+
+/**
+EFFECTS
+**/
+@mixin glassEffect() {
+    background: #091d292d;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@mixin glassEffectDark() {
+    background: #0611182d;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid #ffffff2e;
+}
+
+@mixin cardShadow() {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@mixin shadowSpecial() {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@mixin boxShadow() {
+    box-shadow: rgba(0, 0, 0, 0.897) 0px 19px 38px, rgba(0, 0, 0, 0.692) 0px 15px 12px;
+}
+
+//pulse animation
+@mixin pulseAnimation() {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+
+    -webkit-animation-name: ef-pulse-grow;
+    animation-name: ef-pulse-grow;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+
+    @-webkit-keyframes ef-pulse-grow {
+        50% {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        100%{
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes ef-pulse-grow {
+        50% {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        100%{
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+}

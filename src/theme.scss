@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "/src/abstract/abstract";
+
+html, * {
+    @include resetAll();
+    &::-webkit-scrollbar {
+        @extend %invisible;
+    }
+}
+
+html,body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    font-family: $font-text;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        @extend %invisible;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: inherit;
+    }
+}

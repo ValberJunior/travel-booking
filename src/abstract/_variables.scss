@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;700&display=swap');
+//Variables
+$color1: #33FFCE;
+$color2: #FAFAFA;
+$color3: #000000;
+$color4: #555555;
+$color5: #1c8068;
+$color6: #1c806971;
+$color7: #20a082;
+$color8: #302c2c;
+$color9: #111111;
+$color10:#cdcdcd;
+$color11: #0a3b30;
+$color12: #55555520;
+
+//fonts
+$font-text: 'Outfit', sans-serif;
+
+:export {
+  color1: $color1;
+  color2: $color2;
+  color3: $color3;
+  color4: $color4;
+  color5: $color4;
+  color6: $color4;
+  color7: $color4;
+  color8: $color4;
+  color9: $color4;
+  color10: $color4;
+  color11: $color4;
+}
