@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;700;800&display=swap');
+
 //Variables
-$color1: #33FFCE;
-$color2: #FAFAFA;
-$color3: #000000;
-$color4: #555555;
-$color5: #1c8068;
-$color6: #1c806971;
-$color7: #20a082;
-$color8: #302c2c;
-$color9: #111111;
-$color10:#cdcdcd;
-$color11: #0a3b30;
-$color12: #55555520;
+$color1: #F5F5F5;
+$color2: #151515;
+$color3: #ffff00ec;
+$color4: #237CFF;
+$color5: #09295a;
+$color6: #555555;
+$color7: #cdcdcd;
+$color8: #20a082;
+$color9: #7efadd;
+$color10: #d30000;
+$color11: #fab8b8;
+
 
 //fonts
-$font-text: 'Outfit', sans-serif;
+$font-text: 'Lexend', sans-serif;
 
 :export {
   color1: $color1;
