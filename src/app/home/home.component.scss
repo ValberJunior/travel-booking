@@ -1,0 +1,40 @@
+@import 'src/abstract/_abstract.scss';
+
+.container{
+  @include screenSize(100%,100vh);
+  @include displayFlex(center, flex-end, row);
+  @include backgroundImage("/assets/banner.png");
+  //tablet(S)
+  @include for-tabletS-only{
+    @include displayFlex(center, center, row);
+  }
+    &__wrapper{
+    @include screenSize(70%,auto);
+    @include displayFlex(center, center, row);
+    //tablet(S)
+    @include for-tabletS-only{
+      @include screenSize(70%,auto);
+      @include displayFlex(center, center, column);
+    }
+    &-img{
+      flex:1;
+      @include displayFlex(center, center, row);
+      .image{
+        @include screenSize(90%,auto);
+        //viewport
+        @include for-viewport-only{
+          width: 105%;
+        }
+        //tablet(S)
+        @include for-tabletS-only{
+          display: none;
+        }
+      }
+
+    }
+    &-form{
+      flex:1;
+      @include displayFlex(center, center, row);
+    }
+  }
+}

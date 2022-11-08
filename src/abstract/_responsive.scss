@@ -20,7 +20,7 @@
 }
 
 //Mobile (M)
-@mixin for-phone-only {
+@mixin for-mobile-only {
     @media (max-width: 767px) {
         @content;
     }
