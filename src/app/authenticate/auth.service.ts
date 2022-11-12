@@ -1,9 +1,8 @@
+import { DEFAULT_USERS, USERS } from './../../utils/commons';
 import { Injectable } from '@angular/core';
+import { CACHE } from 'src/utils/commons';
 import { StatusSectionEnum } from 'src/utils/enum';
 import { ILogin, IUser } from 'src/utils/interfaces';
-
-
-const CACHE = localStorage.getItem("Session");
 
 @Injectable({
   providedIn: 'root'
@@ -11,42 +10,18 @@ const CACHE = localStorage.getItem("Session");
 
 export class AuthService {
 
-private Users : IUser[] = [{
-  fullName: "Admin",
-  username: "Admin",
-  email: "Admin@teste.com",
-  phone: "(21)99999-8888",
-  password: "admin@2022",
-  cpf: "111.111.111-11",
-},
-{
-    fullName: "Valber",
-    username:"Valber",
-    email: "valber@teste.com",
-    phone: "(21)99999-8888",
-    password: "123456",
-    cpf: "111.111.111-11",
-  }
-];
+private Users : IUser[]  = USERS ? JSON.parse(USERS) : DEFAULT_USERS;
 
-private StatusSession : string = CACHE ? CACHE : StatusSectionEnum.inactive;
-
-newUser : IUser = {
-  fullName: "",
-  username:"",
-  email: "",
-  phone: "",
-  password: "",
-  cpf: "",
-}
+StatusSession : string = CACHE ? CACHE : StatusSectionEnum.inactive;
 
 constructor() { }
 
 authenticate(params:ILogin) : boolean{
   let match = false;
+  console.log(this.Users);
   this.Users.forEach(
     item => {
-      if (item.username === params.username && item.password === params.password){
+      if (item.email === params.email && item.password === params.password){
         match = true;
       }
     })
@@ -61,10 +36,6 @@ Session(){
 Logout(){
   localStorage.setItem("Session", StatusSectionEnum.inactive);
   this.StatusSession = StatusSectionEnum.inactive;
-}
-
-CreateUser (newUser: IUser){
-  this.Users.push(newUser);
 }
 
 }
