@@ -2,15 +2,23 @@
 
 .container{
   @include screenSize(100%,100vh);
-  @include displayFlex(center, flex-end, row);
+  @include displayFlex(center, center, row);
   @include backgroundImage("/assets/banner.png");
   //tablet(S)
   @include for-tabletS-only{
     @include displayFlex(center, center, row);
   }
     &__wrapper{
-    @include screenSize(70%,auto);
+    @include screenSize(75vw,auto);
     @include displayFlex(center, center, row);
+    //viewport
+    @include for-viewport-only{
+      width: 80vw;
+    }
+    //tablet
+    @include for-tablet-only{
+      width: 85vw;
+    }
     //tablet(S)
     @include for-tabletS-only{
       @include screenSize(70%,auto);
@@ -19,8 +27,9 @@
     &-img{
       flex:1;
       @include displayFlex(center, center, row);
+
       .image{
-        @include screenSize(90%,auto);
+        @include screenSize(90%,100vh);
         //viewport
         @include for-viewport-only{
           width: 105%;
