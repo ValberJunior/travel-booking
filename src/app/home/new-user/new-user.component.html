@@ -2,7 +2,8 @@
   <div class="registerSection__titleWrapper">
     <h4 class="registerSection__titleWrapper-title">Registre se e aproveite nossas promoções:</h4>
   </div>
-<form class="registerSection__form">
+<form  autocomplete="off" class="registerSection__form" [formGroup]="newUserForm" (ngSubmit)="register()" #registerForm="ngForm">
+  <!-- Full Name -->
   <div class="registerSection__form-field">
     <label for="fullName" class="label">Seu nome completo:</label>
     <input
@@ -12,19 +13,16 @@
       name="fullName"
       class="inputField"
       name="fullName"
+      formControlName="fullName"
       />
+      <app-message
+       message="Nome Obrigatório"
+       *ngIf="newUserForm.get('fullName')?.errors &&
+        newUserForm.get('fullName')?.touched"
+       >
+      </app-message>
   </div>
-  <div class="registerSection__form-field">
-    <label for="username" class="label">Um nome para seu usuário:</label>
-    <input
-      type="text"
-      id="username"
-      required
-      name="username"
-      class="inputField"
-      name="username"
-      />
-  </div>
+  <!-- Email -->
   <div class="registerSection__form-field">
     <label for="email" class="label">Digite seu e-mail:</label>
     <input
@@ -34,8 +32,27 @@
       name="email"
       class="inputField"
       name="email"
+      formControlName="email"
       />
+      <app-message
+       message="E-mail Obrigatório"
+       *ngIf="newUserForm.get('email')?.errors?.['required']
+        && newUserForm.get('email')?.touched"
+       >
+      </app-message>
+      <app-message
+       message="E-mail no formato incorreto"
+       *ngIf="newUserForm.get('email')?.errors?.['email'] &&
+        newUserForm.get('email')?.touched"
+      >
+      </app-message>
+      <app-message
+       message="O E-mail já está em uso"
+       *ngIf="newUserForm.get('email')?.errors?.['existingUser']"
+      >
+      </app-message>
   </div>
+  <!-- Telefone -->
   <div class="registerSection__form-field">
     <label for="phone" class="label">Digite seu telefone:</label>
     <input
@@ -45,8 +62,16 @@
       name="phone"
       class="inputField"
       name="phone"
+      formControlName="phone"
       />
+      <app-message
+      message="Verificar Telefone"
+      *ngIf="newUserForm.get('phone')?.errors &&
+      newUserForm.get('phone')?.touched"
+      >
+      </app-message>
   </div>
+  <!-- CPF -->
   <div class="registerSection__form-field">
     <label for="cpf" class="label">Digite seu CPF:</label>
     <input
@@ -56,8 +81,16 @@
       name="cpf"
       class="inputField"
       name="cpf"
+      formControlName="cpf"
       />
+    <app-message
+     message="CPF Inválido"
+     *ngIf="newUserForm.get('cpf')?.errors?.['invalidCpf']
+     && newUserForm.get('cpf')?.touched"
+     >
+    </app-message>
   </div>
+  <!-- Senha -->
   <div class="registerSection__form-field">
     <label for="password" class="label">Digite uma senha:</label>
     <input
@@ -66,13 +99,20 @@
      name="password"
      id="password"
      class="inputField"
+     formControlName="password"
      />
+     <app-message
+      message="A senha deve conter no mínimo 6 dígitos"
+      *ngIf="newUserForm.get('password')?.errors &&
+      newUserForm.get('password')?.touched"
+     >
+     </app-message>
   </div>
-  <button class="registerSection__form-button">
+  <button class="registerSection__form-button" [disabled]="registerForm.invalid">
     Criar usuário
   </button>
 </form>
 <div class="registerSection__signIn">
-  <p>Já tem uma conta?</p> <a href="/">Faça o login</a>
+  <p>Já tem uma conta?</p> <a [routerLink]="['']">Faça o login</a>
 </div>
 </section>
