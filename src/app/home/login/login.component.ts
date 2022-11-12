@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/authenticate/auth.service';
 export class LoginComponent implements OnInit {
 
   credential = {
-    username: "",
+    email: "",
     password: ""
   }
 

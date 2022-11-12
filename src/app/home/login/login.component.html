@@ -4,15 +4,16 @@
   </div>
 <form class="loginSection__form" (ngSubmit)="login()" #loginForm="ngForm">
   <div class="loginSection__form-field">
-    <label for="username" class="label">Usuário:</label>
+    <label for="email" class="label">Usuário:</label>
     <input
-      type="text"
-      id="username"
+      type="email"
+      id="email"
       required
-      name="user"
+      name="email"
       class="inputField"
-      [(ngModel)]="credential.username"
-      name="user"
+      [(ngModel)]="credential.email"
+      placeholder="Digite seu e-mail"
+      name="email"
       #userField = "ngModel"
       />
       <app-message
@@ -28,6 +29,7 @@
      required
      name="password"
      id="password"
+     placeholder="Digite sua senha"
      class="inputField"
      [(ngModel)]="credential.password"
      #passwordField = "ngModel"
@@ -43,6 +45,6 @@
   </button>
 </form>
 <div class="loginSection__createAnAccount">
-  <p>Ainda não tem conta?</p> <a href="/home/newuser">Crie uma Agora</a>
+  <p>Ainda não tem conta?</p> <a [routerLink]="['newuser']">Crie uma Agora</a>
 </div>
 </section>
