@@ -12,13 +12,13 @@ export class NewUserService {
 
   constructor() { }
 
-  CreateUser(newUser: IUser) {
+  createUser(newUser: IUser) {
     this.Users.push(newUser);
     localStorage.setItem("Users", JSON.stringify(this.Users));
     return true
   }
 
-  CheckExistingUser(email: string) : boolean{
+  checkExistingUser(email: string) : boolean{
     let Exists = false;
     this.Users.forEach(
       item => {
@@ -30,8 +30,3 @@ export class NewUserService {
   }
 
 }
-
-
-  // this.Users.push(newUser);
-  // localStorage.setItem("Users",JSON.stringify(this.Users));
-  // console.log("Usuário criado")

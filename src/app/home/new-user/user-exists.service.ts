@@ -10,11 +10,11 @@ export class UserExistsService {
 
   constructor(private newUserService : NewUserService) { }
 
-  UserAlreadyExists(){
+  userAlreadyExists(){
     return (control : AbstractControl) => {
       return control.valueChanges.pipe(
         map((email)=>
-          this.newUserService.CheckExistingUser(email) ? {existingUser : true} : null
+          this.newUserService.checkExistingUser(email) ? {existingUser : true} : null
         ),
         first()
       )

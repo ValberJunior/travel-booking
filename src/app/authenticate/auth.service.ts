@@ -28,12 +28,12 @@ authenticate(params:ILogin) : boolean{
     return match;
 }
 
-Session(){
+sessionActive(){
   localStorage.setItem("Session", StatusSectionEnum.active);
   this.StatusSession = StatusSectionEnum.active;
 }
 
-Logout(){
+logout(){
   localStorage.setItem("Session", StatusSectionEnum.inactive);
   this.StatusSession = StatusSectionEnum.inactive;
 }

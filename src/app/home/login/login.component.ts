@@ -1,3 +1,4 @@
+import { UserService } from './../../authenticate/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/authenticate/auth.service';
@@ -14,13 +15,19 @@ export class LoginComponent implements OnInit {
     password: ""
   }
 
-  constructor(private AuthService : AuthService, private router : Router) { }
+  constructor(
+                private AuthService : AuthService,
+                private userService : UserService ,
+                 private router : Router
+              ) { }
 
   ngOnInit(): void {
   }
 
   login(){
     if (this.AuthService.authenticate(this.credential)){
+      this.AuthService.sessionActive();
+      this.userService.setUserCache(this.credential.email);
       this.router.navigateByUrl('feed');
     }else{
       alert("usuário ou senha não não existem")

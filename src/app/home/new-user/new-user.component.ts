@@ -34,7 +34,7 @@ export class NewUserComponent implements OnInit {
         Validators.email,
       ],
       [
-        this.userExistsService.UserAlreadyExists()
+        this.userExistsService.userAlreadyExists()
       ]
       ],
       phone: ['', [
@@ -59,7 +59,7 @@ export class NewUserComponent implements OnInit {
   register() {
     if (this.newUserForm.valid){
     const newUser = this.newUserForm.getRawValue() as IUser;
-      if(this.newUserService.CreateUser(newUser)){
+      if(this.newUserService.createUser(newUser)){
         this.router.navigateByUrl('');
       }else{
         console.log("Ocorreu um erro")
