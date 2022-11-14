@@ -1,5 +1,6 @@
-import { StatusSectionEnum } from './../../utils/enum';
+import { IUser } from 'src/utils/interfaces';
 import { Injectable } from '@angular/core';
+import { UserService } from './user/user.service';
 
 const KEY = 'session'
 
@@ -8,18 +9,22 @@ const KEY = 'session'
 })
 export class SessionService {
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   returnSession(){
-    return localStorage.getItem(KEY) ?? '';
+    const session = localStorage.getItem(KEY);
+    console.log(session);
+    return session ? JSON.parse(session) : '';
   }
 
-  ActiveSession(){
-    return localStorage.setItem(KEY,StatusSectionEnum.active)
+  setSession(username : string){
+    const user : IUser = this.userService.getUserDetails(username);
+    localStorage.setItem(KEY,JSON.stringify(user));
   }
 
-  InactiveSession(){
-    return localStorage.setItem(KEY,StatusSectionEnum.inactive)
+
+  destroySession(){
+    return localStorage.removeItem(KEY);
   }
 
 }

@@ -1,7 +1,7 @@
+import { SessionService } from './session.service';
 import { DEFAULT_USERS, USERS } from './../../utils/commons';
 import { Injectable } from '@angular/core';
 import { CACHE } from 'src/utils/commons';
-import { StatusSectionEnum } from 'src/utils/enum';
 import { ILogin, IUser } from 'src/utils/interfaces';
 
 @Injectable({
@@ -12,9 +12,7 @@ export class AuthService {
 
 private Users : IUser[]  = USERS ? JSON.parse(USERS) : DEFAULT_USERS;
 
-StatusSession : string = CACHE ? CACHE : StatusSectionEnum.inactive;
-
-constructor() { }
+constructor(private sessionService : SessionService) { }
 
 authenticate(params:ILogin) : boolean{
   let match = false;
@@ -28,14 +26,8 @@ authenticate(params:ILogin) : boolean{
     return match;
 }
 
-sessionActive(){
-  localStorage.setItem("Session", StatusSectionEnum.active);
-  this.StatusSession = StatusSectionEnum.active;
-}
-
 logout(){
-  localStorage.setItem("Session", StatusSectionEnum.inactive);
-  this.StatusSession = StatusSectionEnum.inactive;
+  this.sessionService.destroySession();
 }
 
 }

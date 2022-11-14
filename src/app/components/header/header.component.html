@@ -1,0 +1,18 @@
+<header>
+  <nav>
+    <a>Travel Booking</a>
+    <div *ngIf="user">
+      <div *ngIf="user.fullName;else login">
+        <span>Icone de usuario</span>
+        <a>{{user.fullName}}</a>
+        <a (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <ng-template #login>
+    <span>
+      <a [routerLink]="['']">Login</a>
+    </span>
+  </ng-template>
+</header>
