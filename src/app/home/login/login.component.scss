@@ -1,88 +1,65 @@
-@import "../../../abstract/abstract";
+@import '/src/abstract/abstract';
 
-.loginSection{
-  @include screenSize(20vw, auto);
-  padding: 2em;
-  background: linear-gradient(270deg, $color1,#FFF);
-  border-radius: .5em;
-  @include cardShadow();
-  color: $color2;
-  //viewport
-  @include for-viewport-only{
-    @include screenSize(30vw, auto);
+.loginWrapper{
+  @include screenSize(35vw,auto);
+  @include displayFlex(flex-start, center, column);
+  //tablet
+  @include for-tablet-only{
+    @include screenSize(45vw,auto);
   }
-  //tablet(S)
-  @include for-tabletS-only{
-    @include screenSize(42vw, auto);
-  }
-  //mobile(M)
+  //mobile
   @include for-mobile-only{
-    @include screenSize(65vw, auto);
+    @include screenSize(80vw,auto);
+    background-color: $color1;
+    border-radius: .5em;
+    padding: 4em 1.5em;
+    @include cardShadow();
   }
-    //mobile(S)
-    @include for-mobileS-only{
-      @include screenSize(90vw, auto);
+  //mobile(S)
+  @include for-mobileS-only{
+    @include screenSize(95vw,auto);
+    padding: 5em .5em;
+  }
+  &__title{
+    @include displayFlex(center,center,row);
+    margin-bottom: 3em;
+    .logo{
+      @include screenSize(60px,60px);
+      margin-right: .8em;
     }
-  &__titleWrapper{
-    @include screenSize(100%,auto);
-    margin-bottom: 1em;
-    &-title{
-      @include text(start);
-      color: $color6;
+    .title{
+      font-size: 30px;
+      text-align: left;
+      padding: 1em 0;
     }
   }
   &__form{
-    @include screenSize(100%,auto);
-    margin-top: 16px;
-    &-field{
-      @include displayFlex(center, flex-start, column);
-      margin: 16px 0;
-      .label{
-        @include label(left);
-      }
-      .inputField{
-        @include input();
-        border-radius: .5em;
+    @include screenSize(80%,auto);
+    @include displayFlex(center,center,column);
+    &-inputField{
+      @include screenSize(100%,auto);
+      margin: .5em 0;
+      .input{
+        @include screenSize(100%,56px);
+        border-radius: .6em;
+        padding: .5em;
+        font-size: 20px;
+        border: 1px solid $color5;
         outline: none;
-        border: 1px solid $color2;
-        &:focus{
-          border: 3px solid $color3;
-        }
-        &:-webkit-autofill {
-          -webkit-box-shadow: 0 0 0 30px $color1 inset;
-        }
-        &:-webkit-autofill {
-          -webkit-text-fill-color: $color2 !important;
-        }
       }
     }
     &-button{
-      @include screenSize(100%,56px);
-      margin: 24px 0;
-      font-size: 16px;
-      @include cardShadow();
-      background: linear-gradient(270deg,$color4,$color5);
-      cursor: pointer;
+      @include screenSize(100%,auto);
+      border-radius: .6em;
+      background: $color5;
       color: $color1;
+      font-size: 22px;
+      margin-top: .8em;
       outline: none;
+      padding: 1em;
       border: 1px solid $color1;
-      border-radius: .5em;
-      transition: all .5s ease-in-out;
-      &:disabled{
-          transition: all .5s ease-in-out;
-          background: $color6;
-          opacity: 0.3;
-          cursor:help;
-      }
-    }
-  }
-  &__createAnAccount{
-    font-size: 12px;
-    @include displayFlex(center, center,row);
-    gap: 4px;
-    a{
+      @include cardShadow();
       cursor: pointer;
-      @include resetLink($color4);
     }
   }
 }

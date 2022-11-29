@@ -1,50 +1,31 @@
-<section class="loginSection">
-  <div class="loginSection__titleWrapper">
-    <h4 class="loginSection__titleWrapper-title">Primeiro faça seu login:</h4>
+<section class="loginWrapper">
+  <div class="loginWrapper__title">
+    <img src="assets/logo.png" alt="icone de Logo" class="logo">
+    <h4 class="title">Travel Booking</h4>
+
   </div>
-<form class="loginSection__form" (ngSubmit)="login()" #loginForm="ngForm">
-  <div class="loginSection__form-field">
-    <label for="email" class="label">Usuário:</label>
-    <input
-      type="email"
-      id="email"
-      required
-      name="email"
-      class="inputField"
-      [(ngModel)]="credential.email"
-      placeholder="Digite seu e-mail"
-      name="email"
-      #userField = "ngModel"
-      />
-      <app-message
-      *ngIf="userField.invalid && userField.touched"
-      message="Usuário obrigatório"
-      >
-      </app-message>
-  </div>
-  <div class="loginSection__form-field">
-    <label for="password" class="label">Senha:</label>
-    <input
-     type="password"
-     required
-     name="password"
-     id="password"
-     placeholder="Digite sua senha"
-     class="inputField"
-     [(ngModel)]="credential.password"
-     #passwordField = "ngModel"
-     />
-     <app-message
-     *ngIf="passwordField.invalid && passwordField.touched"
-     message="Senha obrigatório"
-     >
-     </app-message>
-  </div>
-  <button class="loginSection__form-button" [disabled]="loginForm.invalid">
-    Entrar
-  </button>
-</form>
-<div class="loginSection__createAnAccount">
-  <p>Ainda não tem conta?</p> <a [routerLink]="['newuser']">Crie uma Agora</a>
-</div>
-</section>
+
+  <form class="loginWrapper__form" (ngSubmit)="login()">
+    <div class="loginWrapper__form-inputField">
+      <input
+       placeholder="Digite seu e-mail"
+       type="email"
+       class="input"
+       [(ngModel)]="user"
+       name="user"
+       >
+    </div>
+    <div class="loginWrapper__form-inputField">
+      <input
+       placeholder="Digite sua senha"
+       type="password"
+       class="input"
+       [(ngModel)]="password"
+       name="password"
+       >
+    </div>
+    <button type="submit" class="loginWrapper__form-button">
+      Entrar
+    </button>
+  </form>
+<section>

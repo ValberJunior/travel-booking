@@ -1,49 +1,26 @@
-@import 'src/abstract/_abstract.scss';
+@import '/src/abstract/abstract';
 
 .container{
-  @include screenSize(100%,100vh);
-  @include displayFlex(center, center, row);
-  @include backgroundImage("/assets/banner.png");
-  //tablet(S)
-  @include for-tabletS-only{
-    @include displayFlex(center, center, row);
+  @include screenSize(100vw,100vh);
+  @include displayFlex(flex-start, center,row);
+  @include backgroundImage("/assets/image2.jpg");
+  background-position-y: 50%;
+  //tablet
+  @include for-tablet-only{
+    background-position-x: 20vh;
   }
-    &__wrapper{
-    @include screenSize(75vw,auto);
-    @include displayFlex(center, center, row);
-    //viewport
-    @include for-viewport-only{
-      width: 80vw;
-    }
-    //tablet
-    @include for-tablet-only{
-      width: 85vw;
-    }
-    //tablet(S)
-    @include for-tabletS-only{
-      @include screenSize(70%,auto);
+    .login{
+      @include screenSize(35%,100vh);
       @include displayFlex(center, center, column);
-    }
-    &-img{
-      flex:1;
-      @include displayFlex(center, center, row);
-
-      .image{
-        @include screenSize(90%,100vh);
-        //viewport
-        @include for-viewport-only{
-          width: 105%;
-        }
-        //tablet(S)
-        @include for-tabletS-only{
-          display: none;
-        }
-      }
-
-    }
-    &-form{
-      flex:1;
-      @include displayFlex(center, center, row);
-    }
+      background: $color1;
+        //tablet
+  @include for-tablet-only{
+    @include screenSize(50%,100vh);
   }
+  //mobile(M)
+  @include for-mobile-only{
+    @include screenSize(100vw,100vh);
+    @include backgroundImage('/assets/banner.png');
+  }
+    }
 }
