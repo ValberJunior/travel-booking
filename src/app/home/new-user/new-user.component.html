@@ -3,10 +3,10 @@
   <div class="registerWrapper__title">
     <img src="assets/logo.png" alt="icone de Logo" class="logo">
     <h4 class="title">Travel Booking</h4>
-
   </div>
 
   <form class="registerWrapper__form" [formGroup]="newUserForm" (ngSubmit)="signup()" #registerForm="ngForm">
+    <!-- NAME -->
     <div class="registerWrapper__form-inputField">
       <label for="name" class="label">Seu nome:</label>
       <input
@@ -16,8 +16,16 @@
        formControlName="name"
        required
        id="name"
+       name="name"
        >
+       <app-message
+        message="Nome Obrigatório"
+        *ngIf="newUserForm.get('name')?.errors &&
+        newUserForm.get('name')?.touched"
+       >
+      </app-message>
     </div>
+    <!-- EMAIL -->
     <div class="registerWrapper__form-inputField">
       <label for="email" class="label">Seu email:</label>
       <input
@@ -27,8 +35,27 @@
        formControlName="email"
        required
        id="email"
+       name="email"
        >
+       <app-message
+       message="E-mail Obrigatório"
+       *ngIf="newUserForm.get('email')?.errors?.['required']
+        && newUserForm.get('email')?.touched"
+       >
+      </app-message>
+      <app-message
+       message="E-mail no formato incorreto"
+       *ngIf="newUserForm.get('email')?.errors?.['email'] &&
+        newUserForm.get('email')?.touched"
+      >
+      </app-message>
+      <app-message
+       *ngIf="newUserForm.get('email')?.errors?.['emailAlreadyUsed']"
+       message="O Email já está em uso"
+       >
+      </app-message>
     </div>
+    <!-- CPF -->
     <div class="registerWrapper__form-inputField">
       <label for="cpf" class="label">Seu CPF:</label>
       <input
@@ -38,8 +65,21 @@
        formControlName="cpf"
        required
        id="cpf"
+       name="cpf"
        >
+       <app-message
+       message="CPF Inválido"
+       *ngIf="newUserForm.get('cpf')?.errors?.['invalidCpf']
+       && newUserForm.get('cpf')?.touched"
+       >
+      </app-message>
+      <app-message
+      *ngIf="newUserForm.get('cpf')?.errors?.['cpfAlreadyUsed']"
+      message="O CPF já está em uso"
+      >
+     </app-message>
     </div>
+    <!-- PHONE -->
     <div class="registerWrapper__form-inputField">
       <label for="phone" class="label">Seu Telefone:</label>
       <input
@@ -49,8 +89,16 @@
        formControlName="phone"
        required
        id="phone"
+       name="phone"
        >
+       <app-message
+       message="Verificar Telefone"
+       *ngIf="newUserForm.get('phone')?.errors &&
+       newUserForm.get('phone')?.touched"
+       >
+       </app-message>
     </div>
+    <!-- PASSWORD -->
     <div class="registerWrapper__form-inputField">
       <label for="password" class="label">Crie uma Senha:</label>
       <input
@@ -60,7 +108,14 @@
        formControlName="password"
        required
        id="password"
+       name="password"
        >
+       <app-message
+       message="A senha deve conter no mínimo 6 dígitos"
+       *ngIf="newUserForm.get('password')?.errors &&
+       newUserForm.get('password')?.touched"
+      >
+      </app-message>
     </div>
     <button type="submit" class="registerWrapper__form-button" [disabled]="registerForm.invalid">
       Criar Conta

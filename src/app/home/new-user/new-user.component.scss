@@ -3,65 +3,84 @@
 .registerWrapper {
   @include screenSize(35vw, auto);
   @include displayFlex(flex-start, center, column);
+
   //tablet
   @include for-tablet-only {
     @include screenSize(45vw, auto);
   }
-  //mobile
-  @include for-mobile-only {
+
+  //tablet(S)
+  @include for-tabletS-only {
     @include screenSize(80vw, auto);
     background-color: $color1;
     border-radius: 0.5em;
     padding: 4em 1.5em;
     @include cardShadow();
   }
+
   //mobile(S)
   @include for-mobileS-only {
     @include screenSize(95vw, auto);
-    padding: 5em 0.5em;
+    padding: 1em 0 2em 0;
   }
+
   &__title {
     @include displayFlex(center, center, row);
     margin-bottom: 3em;
+
+    //mobile(S)
+    @include for-mobileS-only {
+      display:none;
+    }
+
     .logo {
       @include screenSize(60px, 60px);
       margin-right: 0.8em;
     }
+
     .title {
       font-size: 30px;
       text-align: left;
       padding: 1em 0;
     }
   }
+
   &__form {
     @include screenSize(80%, auto);
     @include displayFlex(center, center, column);
     margin-top: 16px;
+
     &-inputField {
       @include screenSize(100%, auto);
       margin: 8px 0;
-      .label{
+
+      .label {
         font-size: 14px;
         text-align: left;
         margin-bottom: 8px;
       }
+
       .input {
         @include input();
         margin-top: 8px;
         border-radius: .5em;
         outline: none;
         border: 1px solid $color2;
-        &:focus{
+
+        &:focus {
           border: 3px solid $color4;
         }
+
         &:-webkit-autofill {
           -webkit-box-shadow: 0 0 0 30px $color1 inset;
         }
+
         &:-webkit-autofill {
           -webkit-text-fill-color: $color2 !important;
         }
       }
     }
+
     &-button {
       @include screenSize(100%, auto);
       border-radius: 0.6em;
@@ -74,6 +93,7 @@
       border: 1px solid $color1;
       @include cardShadow();
       cursor: pointer;
+
       &:disabled {
         transition: all 0.5s ease-in-out;
         background: $color6;
@@ -82,8 +102,10 @@
       }
     }
   }
+
   p {
     margin-top: 1.5em;
+
     .link {
       color: $color4;
       font-weight: 600;

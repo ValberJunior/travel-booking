@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const URL = "https://api-travel-booking.vercel.app/user/login"
+const URL = "https://api-travel-booking.vercel.app/user/login";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,8 @@ export class AuthService {
     return this.httpClient.post(URL,{
       email: credential.email,
       password: credential.password
-    },
-    {
-      responseType: 'text'
-    });
+    }
+    )
   }
 
 }

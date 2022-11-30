@@ -7,8 +7,8 @@
   @include for-tablet-only {
     @include screenSize(45vw, auto);
   }
-  //mobile
-  @include for-mobile-only {
+  //tablet(S)
+  @include for-tabletS-only {
     @include screenSize(80vw, auto);
     background-color: $color1;
     border-radius: 0.5em;
@@ -23,6 +23,10 @@
   &__title {
     @include displayFlex(center, center, row);
     margin-bottom: 3em;
+    //mobile(S)
+    @include for-mobileS-only{
+      margin-bottom: 1em;
+    }
     .logo {
       @include screenSize(60px, 60px);
       margin-right: 0.8em;

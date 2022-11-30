@@ -10,7 +10,11 @@
   @include for-tablet-only {
     background-position-x: 20vh;
   }
-
+  //tablet(S)
+  @include for-tabletS-only {
+    height: auto;
+    @include displayFlex(center, center, row);
+  }
   .login {
     @include screenSize(35%, 100vh);
     @include displayFlex(center, center, column);
@@ -21,10 +25,14 @@
       @include screenSize(50%, 100vh);
     }
 
-    //mobile(M)
-    @include for-mobile-only {
+    //tablet(S)
+    @include for-tabletS-only {
       @include screenSize(100vw, 100vh);
       @include backgroundImage("/assets/banner.png");
+    }
+    //mobile(S)
+    @include for-mobileS-only {
+      height: 105vh;
     }
   }
 }
