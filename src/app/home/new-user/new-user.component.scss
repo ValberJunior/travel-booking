@@ -1,6 +1,6 @@
 @import "/src/abstract/abstract";
 
-.loginWrapper {
+.registerWrapper {
   @include screenSize(35vw, auto);
   @include displayFlex(flex-start, center, column);
   //tablet
@@ -74,15 +74,15 @@
       border: 1px solid $color1;
       @include cardShadow();
       cursor: pointer;
-      &:disabled{
-        transition: all .5s ease-in-out;
+      &:disabled {
+        transition: all 0.5s ease-in-out;
         background: $color6;
         opacity: 0.3;
-        cursor:help;
-    }
+        cursor: help;
+      }
     }
   }
-  p{
+  p {
     margin-top: 1.5em;
     .link {
       color: $color4;

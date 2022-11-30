@@ -1,0 +1,72 @@
+
+<section class="registerWrapper">
+  <div class="registerWrapper__title">
+    <img src="assets/logo.png" alt="icone de Logo" class="logo">
+    <h4 class="title">Travel Booking</h4>
+
+  </div>
+
+  <form class="registerWrapper__form" [formGroup]="newUserForm" (ngSubmit)="signup()" #registerForm="ngForm">
+    <div class="registerWrapper__form-inputField">
+      <label for="name" class="label">Seu nome:</label>
+      <input
+       placeholder="Digite seu nome"
+       type="text"
+       class="input"
+       formControlName="name"
+       required
+       id="name"
+       >
+    </div>
+    <div class="registerWrapper__form-inputField">
+      <label for="email" class="label">Seu email:</label>
+      <input
+       placeholder="Digite seu e-mail"
+       type="email"
+       class="input"
+       formControlName="email"
+       required
+       id="email"
+       >
+    </div>
+    <div class="registerWrapper__form-inputField">
+      <label for="cpf" class="label">Seu CPF:</label>
+      <input
+       placeholder="Digite seu CPF"
+       type="cpf"
+       class="input"
+       formControlName="cpf"
+       required
+       id="cpf"
+       >
+    </div>
+    <div class="registerWrapper__form-inputField">
+      <label for="phone" class="label">Seu Telefone:</label>
+      <input
+       placeholder="Digite seu telefone com DDD"
+       type="tel"
+       class="input"
+       formControlName="phone"
+       required
+       id="phone"
+       >
+    </div>
+    <div class="registerWrapper__form-inputField">
+      <label for="password" class="label">Crie uma Senha:</label>
+      <input
+       placeholder="Mínimo 6 caracteres"
+       type="password"
+       class="input"
+       formControlName="password"
+       required
+       id="password"
+       >
+    </div>
+    <button type="submit" class="registerWrapper__form-button" [disabled]="registerForm.invalid">
+      Criar Conta
+    </button>
+  </form>
+  <p>
+    Já é um usuário? <a [routerLink]="['/']" class="link">Faça o login</a>
+  </p>
+<section>

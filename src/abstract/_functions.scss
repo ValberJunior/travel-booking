@@ -99,12 +99,6 @@
     font-weight: 300;
 }
 
-//label
-@mixin label($align){
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
 //input
 @mixin input(){
   width: 100%;

@@ -1,26 +1,30 @@
-@import '/src/abstract/abstract';
+@import "/src/abstract/abstract";
 
-.container{
-  @include screenSize(100vw,100vh);
-  @include displayFlex(flex-start, center,row);
+.container {
+  @include screenSize(100vw, 100vh);
+  @include displayFlex(flex-start, center, row);
   @include backgroundImage("/assets/image2.jpg");
   background-position-y: 50%;
+
   //tablet
-  @include for-tablet-only{
+  @include for-tablet-only {
     background-position-x: 20vh;
   }
-    .login{
-      @include screenSize(35%,100vh);
-      @include displayFlex(center, center, column);
-      background: $color1;
-        //tablet
-  @include for-tablet-only{
-    @include screenSize(50%,100vh);
-  }
-  //mobile(M)
-  @include for-mobile-only{
-    @include screenSize(100vw,100vh);
-    @include backgroundImage('/assets/banner.png');
-  }
+
+  .login {
+    @include screenSize(35%, 100vh);
+    @include displayFlex(center, center, column);
+    background: $color1;
+
+    //tablet
+    @include for-tablet-only {
+      @include screenSize(50%, 100vh);
     }
+
+    //mobile(M)
+    @include for-mobile-only {
+      @include screenSize(100vw, 100vh);
+      @include backgroundImage("/assets/banner.png");
+    }
+  }
 }

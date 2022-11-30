@@ -1,10 +1,10 @@
 export interface IUser {
-  fullName: string;
+  name: string;
   email: string;
-  phone: string;
   cpf: string;
+  phone: string;
   password: string;
-  travelBookings?: ITravel[];
+  bookedTickets?: ITravel[];
 }
 
 export interface ILogin {
@@ -12,11 +12,11 @@ export interface ILogin {
   password: string
 }
 export interface ITravel{
-  id: number;
+  id: string;
   city: string;
   category: string;
   image: string;
-  stops: string[];
-  class: string[]
+  reserve: boolean;
+  details:string
 }
 

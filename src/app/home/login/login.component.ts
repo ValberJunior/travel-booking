@@ -1,4 +1,7 @@
+import { ILogin } from './../../../utils/interfaces';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/authenticate/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  user:string = "";
-  password: string = "";
+  credential: ILogin = {
+    email: "",
+    password: ""
+  }
 
   constructor(
-  ) { }
+                private authService: AuthService,
+                private router : Router
+              ) { }
 
   ngOnInit(): void {
   }
 
-  login(){
+  login() {
+   this.authService.authenticate(this.credential).
+   subscribe(
+    ()=>{
+      this.router.navigateByUrl('/feed')
+    },
+    (error)=>{
+      alert('Usuário ou senha inválidos');
+      console.log(error)
+    }
+   )
   }
 
 }

@@ -5,27 +5,50 @@
 
   </div>
 
-  <form class="loginWrapper__form" (ngSubmit)="login()">
+  <form class="loginWrapper__form" (ngSubmit)="login()" #loginForm="ngForm">
     <div class="loginWrapper__form-inputField">
+      <label for="name" class="label">Seu email:</label>
       <input
        placeholder="Digite seu e-mail"
        type="email"
        class="input"
-       [(ngModel)]="user"
-       name="user"
+       [(ngModel)]="credential.email"
+       #emailField="ngModel"
+       name="email"
+       id="email"
+       required
        >
+       <app-message
+       *ngIf="emailField.invalid && emailField.touched"
+        message="Usuário obrigatório"
+        >
+       </app-message>
     </div>
     <div class="loginWrapper__form-inputField">
+      <label for="password" class="label">Sua Senha:</label>
       <input
        placeholder="Digite sua senha"
        type="password"
        class="input"
-       [(ngModel)]="password"
+       [(ngModel)]="credential.password"
+       #passwordField="ngModel"
        name="password"
+       id="password"
+       required
        >
+       <app-message
+        *ngIf="passwordField.invalid && passwordField.touched"
+        message="Senha Obrigatória"
+       >
+       </app-message>
     </div>
-    <button type="submit" class="loginWrapper__form-button">
+    <button type="submit" class="loginWrapper__form-button"
+     [disabled]="loginForm.invalid"
+    >
       Entrar
     </button>
   </form>
+  <p>
+    Não é um usuário? <a [routerLink]="['signup']" class="link">Crie uma conta</a>
+  </p>
 <section>
