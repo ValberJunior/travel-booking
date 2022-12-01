@@ -1,0 +1,24 @@
+<header class="header">
+  <nav class="header__navbar">
+    <a class="header__navbar-logo">
+      <img src="/assets/logo.png" alt="logo"/>
+    </a>
+
+    <div *ngIf="user$ | async as user" class="userbar">
+      <div *ngIf="user.name; else login" class="options">
+        <div class="profile">
+          <img src="/assets/user.png" alt="user image" class="profile__user"/>
+          <a class="name">{{user.name}}</a>
+        </div>
+        <span class="toggleSession">
+          <a (click)="logout()">Logout</a>
+        </span>
+      </div>
+    </div>
+  </nav>
+    <ng-template #login class="options">
+      <span class="toggleSession">
+        <a [routerLink]="['']">Login</a>
+      </span>
+    </ng-template>
+</header>

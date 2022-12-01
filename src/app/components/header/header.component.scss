@@ -1,0 +1,46 @@
+@import '/src/abstract/abstract';
+
+header{
+  @include screenSize(100vw,auto);
+  padding: 2em 0;
+  background: darkblue; // to do
+  @include displayFlex(center,center,row);
+  &__navbar{
+    @include screenSize(70vw,auto);
+    @include displayFlex(space-between,center,row);
+    &-logo{
+      @include screenSize(90px,auto);
+      @include displayFlex(center, center,row);
+      img{
+        @include screenSize(100%,auto)
+      }
+    }
+    .userbar{
+      @include screenSize(20vw,auto);
+      @include displayFlex(center,center,row);
+      .options{
+        @include screenSize(auto,auto);
+        @include displayFlex(space-between);
+        .profile{
+          @include screenSize(50%,auto);
+          @include displayFlex(space-between,center,row);
+          &__user{
+            @include screenSize(60px,60px);
+          }
+          .name{
+            color: red;
+            font-size: 10px;
+          }
+        }
+        .toggleSession{
+          @include screenSize(auto,auto);
+          @include displayFlex(center, center, row);
+          a{
+            @extend .name;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
