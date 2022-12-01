@@ -1,7 +1,7 @@
 import { IUser } from 'src/utils/interfaces';
-import { TokenService } from './../token.service';
 import { Injectable } from '@angular/core';
-import jwtDecode from 'jwt-decode';
+import { TokenService } from '../token.service';
+import jwt_decode from 'jwt-decode';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,17 +11,15 @@ export class UserService {
 
   private userSubject = new BehaviorSubject<IUser>({});
 
-  constructor(
-    private tokenService : TokenService
-  ) {
+  constructor(private tokenService : TokenService) {
     if(this.tokenService.hasToken()){
       this.decodeJWT();
     }
-   }
+  }
 
   private decodeJWT(){
     const token = this.tokenService.returnToken();
-    const user = jwtDecode(token) as IUser;
+    const user = jwt_decode(token) as IUser;
     this.userSubject.next(user);
   }
 
@@ -34,7 +32,7 @@ export class UserService {
     this.decodeJWT();
   }
 
-  logout(){
+  Logout(){
     this.tokenService.destroyToken();
     this.userSubject.next({});
   }
