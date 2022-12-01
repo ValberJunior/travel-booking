@@ -1,0 +1,7 @@
+@import '/src/abstract/abstract';
+
+.content{
+  @include screenSize(100vw,100vh);
+  background: $color1;
+  @include displayFlex(center, center, row);
+}

@@ -3,4 +3,5 @@
 .container{
   @include screenSize(100vw,auto);
   @include displayFlex(center,center,column);
+  position: relative;
 }
