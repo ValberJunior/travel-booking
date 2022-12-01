@@ -1,43 +1,54 @@
 @import '/src/abstract/abstract';
 
-header{
+.header{
   @include screenSize(100vw,auto);
-  padding: 2em 0;
-  background: darkblue; // to do
+  padding: 1.5em 0;
+  background-color: $color5;
   @include displayFlex(center,center,row);
   &__navbar{
     @include screenSize(70vw,auto);
     @include displayFlex(space-between,center,row);
     &-logo{
-      @include screenSize(90px,auto);
+      @include screenSize(20vw,auto);
       @include displayFlex(center, center,row);
-      img{
-        @include screenSize(100%,auto)
+      .logo {
+        @include screenSize(60px, 60px);
+        margin-right: 0.8em;
+      }
+      .title {
+        font-size: 22px;
+        text-align: left;
+        color: $color1;
       }
     }
     .userbar{
-      @include screenSize(20vw,auto);
-      @include displayFlex(center,center,row);
+      @include screenSize(18vw,auto);
+      @include displayFlex(space-between,center,row);
       .options{
-        @include screenSize(auto,auto);
-        @include displayFlex(space-between);
+        @include screenSize(100%,auto);
+        @include displayFlex(space-between, center, row);
         .profile{
           @include screenSize(50%,auto);
-          @include displayFlex(space-between,center,row);
+          @include displayFlex(flex-start,center,row);
+          gap: 15px;
           &__user{
-            @include screenSize(60px,60px);
+            @include screenSize(50px,50px);
           }
           .name{
-            color: red;
-            font-size: 10px;
+            font-size: 16px;
+            color: $color1;
           }
         }
         .toggleSession{
           @include screenSize(auto,auto);
           @include displayFlex(center, center, row);
           a{
-            @extend .name;
+            color: $color1;
             cursor: pointer;
+            padding: 1em 2.5em;
+            background: $color12;
+            border-radius: .5em;
+            @include cardShadow();
           }
         }
       }

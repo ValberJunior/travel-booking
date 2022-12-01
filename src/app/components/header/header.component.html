@@ -1,8 +1,10 @@
 <header class="header">
   <nav class="header__navbar">
-    <a class="header__navbar-logo">
-      <img src="/assets/logo.png" alt="logo"/>
-    </a>
+    <span class="header__navbar-logo">
+      <img src="assets/logo.png" alt="icone de Logo" class="logo">
+      <h4 class="title">Travel Booking</h4>
+
+    </span>
 
     <div *ngIf="user$ | async as user" class="userbar">
       <div *ngIf="user.name; else login" class="options">
