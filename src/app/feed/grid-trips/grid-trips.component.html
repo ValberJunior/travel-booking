@@ -1,0 +1,24 @@
+<p *ngIf="!trips">
+    <!-- AVISO -->
+    Desculpe não há viagens reservadas
+</p>
+
+<section class="container">
+    <!-- Grade de cartões -->
+    <div *ngFor="let trip of trips" class="container__gridCards">
+       <div class="card">
+            <a [routerLink]="['/trips/{{trip.id}}']" class="card__item">
+                <div class="card__item-titleWrapper">
+                    <h2 class="title">{{trip.city}}</h2>
+                </div>
+                <img class="card__item-image" [src]="trip.image" [alt]="trip.city"/>
+                <div class="card__item-options">
+                    <span class="options">{{trip.category}}</span>
+                    <span class="options">{{trip.details}}</span>
+                </div>
+                <button class="reserveButton" *ngIf="trip.reserve === false">Reservar</button>
+                <button class="cancelReserveButton" *ngIf="trip.reserve">Cancelar</button>
+            </a>
+       </div>
+    </div>
+</section>

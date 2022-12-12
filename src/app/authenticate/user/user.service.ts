@@ -20,6 +20,7 @@ export class UserService {
   private decodeJWT(){
     const token = this.tokenService.returnToken();
     const user = jwt_decode(token) as IUser;
+    console.log("User decodificado", user);
     this.userSubject.next(user);
   }
 
@@ -38,6 +39,7 @@ export class UserService {
   }
 
   isLogged(){
+    console.log("O usuário está logado?", this.tokenService.hasToken())
     return this.tokenService.hasToken();
   }
 

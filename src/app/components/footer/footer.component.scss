@@ -4,8 +4,6 @@
   @include screenSize(100vw,auto);
   background: $color5;
   padding: 2em;
-  position: absolute;
-  bottom: 0;
   @include displayFlex(center, center, row);
   a{
     color: $color1;

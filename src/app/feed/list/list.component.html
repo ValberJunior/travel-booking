@@ -1,5 +1,14 @@
 <app-header></app-header>
 <section class="content">
-  <h1>Content</h1>
+  <article class="banner">
+    <div class="banner__title">
+     <h2> Compre Agora os melhores trechos pelo <span>menor valor</span></h2>
+      <img src="/assets/logo.png" class="logo"/>
+    </div>
+  </article>
+  <app-grid-trips
+   [trips]="trips"
+   >
+  </app-grid-trips>
 </section>
 <app-footer></app-footer>

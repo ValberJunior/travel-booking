@@ -1,7 +1,32 @@
 @import '/src/abstract/abstract';
 
 .content{
-  @include screenSize(100vw,100vh);
+  @include screenSize(100vw,auto);
   background: $color1;
-  @include displayFlex(center, center, row);
+  @include displayFlex(center, center, column);
+  margin-bottom: 2em;
+  .banner{
+    @include screenSize(100%,95vh);
+    @include displayFlex(center, center,row);
+    @include backgroundImage('/assets/image3.jpg');
+    background-position-y: -35vh;
+    &__title{
+      background: $color17;
+      padding: 2em;
+      border-radius: 1em;
+      @include displayFlex(center, center,row);
+      gap: 10px;
+      h2{
+        @include title(center);
+        color: $color1;
+        span{
+          color: $color3;
+        }
+      }
+      .logo{
+        @include screenSize(50px,auto);
+      }
+    }
+
+  }
 }

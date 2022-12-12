@@ -3,8 +3,9 @@
 .container {
   @include screenSize(100vw, 100vh);
   @include displayFlex(flex-start, center, row);
-  @include backgroundImage("/assets/image2.jpg");
-  background-position-y: 50%;
+  @include backgroundImage("/assets/image1.jpg");
+  background-position-y: 10%;
+  background-position-x: 15vw;
 
   //tablet
   @include for-tablet-only {
