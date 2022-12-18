@@ -7,7 +7,8 @@
     <!-- Grade de cartões -->
     <div *ngFor="let trip of trips" class="container__gridCards">
        <div class="card">
-            <a [routerLink]="['/trips/{{trip.id}}']" class="card__item">
+            <div
+             class="card__item">
                 <div class="card__item-titleWrapper">
                     <h2 class="title">{{trip.city}}</h2>
                 </div>
@@ -16,9 +17,8 @@
                     <span class="options">{{trip.category}}</span>
                     <span class="options">{{trip.details}}</span>
                 </div>
-                <button class="reserveButton" *ngIf="trip.reserve === false">Reservar</button>
-                <button class="cancelReserveButton" *ngIf="trip.reserve">Cancelar</button>
-            </a>
+                <button class="reserveButton" (click)="add(trip)" >Reservar</button>
+            </div>
        </div>
     </div>
 </section>

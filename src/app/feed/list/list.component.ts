@@ -1,8 +1,10 @@
+import { Observable, switchMap } from 'rxjs';
 import { ListService } from './list.service';
 import { FeedService } from './../feed.service';
 import { UserService } from './../../authenticate/user/user.service';
 import { ITravel } from 'src/utils/interfaces';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -12,23 +14,13 @@ import { Component, OnInit } from '@angular/core';
 export class ListComponent implements OnInit {
 
   trips! : ITravel[];
-
   constructor(
-   private userService : UserService,
-   private feedService : FeedService,
-   private listService : ListService
+    private activatedRouter : ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.userService.returnUser().subscribe((user)=>{
-      const idUser = user.id ?? '';
-      console.log(idUser);
-      this.feedService.travelList().subscribe(
-        (trips)=> {
-          console.log(trips);
-          this.trips = trips;
-        }
-        )
+    this.activatedRouter.params.subscribe(param => {
+      this.trips = this.activatedRouter.snapshot.data['list'];
     })
   }
 

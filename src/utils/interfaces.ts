@@ -1,5 +1,5 @@
 export interface IUser {
-  id?:string,
+  _id?:string,
   name?: string;
   email?: string;
   cpf?: string;
@@ -14,7 +14,7 @@ export interface ILogin {
   password: string
 }
 export interface ITravel{
-  id: string;
+  _id: string;
   city: string;
   category: string;
   image: string;

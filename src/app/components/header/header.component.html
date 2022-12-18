@@ -12,8 +12,12 @@
           <img src="/assets/user.png" alt="user image" class="profile__user"/>
           <a class="name">{{user.name}}</a>
         </div>
+        <div class="tickets">
+          <span class="tickets__trips">{{travels}}</span>
+          <img src="/assets/ticket.png" alt="tickets icon" class="tickets__image"/>
+        </div>
         <span class="toggleSession">
-          <a (click)="logout()">Logout</a>
+          <a (click)="logout()"><img src="/assets/logout.png" alt="logout icon"/></a>
         </span>
       </div>
     </div>
