@@ -1,3 +1,4 @@
+import { UserAreaComponent } from './user-area/user-area.component';
 import { ListResolver } from './list/list.resolver';
 import { ListComponent } from './list/list.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,10 @@ const routes: Routes = [
     resolve:{
       list: ListResolver
     }
+  },
+  {
+    path:"user-area",
+    component: UserAreaComponent
   }
 ];
 

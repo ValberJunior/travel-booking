@@ -1,0 +1,29 @@
+<app-header></app-header>
+<section class="content">
+  <div class="content__wrapper">
+    <article class="details">
+      <div class="details__titleWrapper">
+        <h2>Confirmar compra</h2>
+      </div>
+      <p class="details__opt"> Nome: {{user.name}}</p>
+      <p class="details__opt">email: {{user.email}}</p>
+      <div class="buttonWrapper">
+        <button class="buttonWrapper__buy">
+          Etapa de pagamento
+        </button>
+        <button class="buttonWrapper__back"  [routerLink]="['/']">
+          Voltar
+        </button>
+      </div>
+
+
+    </article>
+    <article class="cards">
+        <app-list-trips
+        [trips]="trips"
+        >
+      </app-list-trips>
+    </article>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -8,7 +8,7 @@ import { Component, DoCheck, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, DoCheck{
+export class HeaderComponent implements OnInit{
 
   user$ = this.userService.returnUser();
   userId : any;
@@ -23,12 +23,12 @@ export class HeaderComponent implements OnInit, DoCheck{
 
   ngOnInit(): void {
     this.userService.returnUser().subscribe(user => this.userId = user._id);
-    // this.feedService.travelListUser(this.userId).subscribe(item => this.travels = item.length);
-  }
-
-  ngDoCheck(): void {
     this.feedService.travelListUser(this.userId).subscribe(item => this.travels = item.length);
   }
+
+  // ngDoCheck(): void {
+  //   this.feedService.travelListUser(this.userId).subscribe(item => this.travels = item.length);
+  // }
 
   logout(){
     this.userService.Logout();

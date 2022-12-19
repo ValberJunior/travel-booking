@@ -63,7 +63,6 @@ export class NewUserComponent implements OnInit {
         },
         (error)=>{
           alert('Verifique os dados informados');
-          console.log(error)
         }
        )
   }

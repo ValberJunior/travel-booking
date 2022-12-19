@@ -13,7 +13,7 @@
           <a class="name">{{user.name}}</a>
         </div>
         <div class="tickets">
-          <span class="tickets__trips">{{travels}}</span>
+          <span class="tickets__trips" [routerLink]="['user-area']">{{travels}}</span>
           <img src="/assets/ticket.png" alt="tickets icon" class="tickets__image"/>
         </div>
         <span class="toggleSession">

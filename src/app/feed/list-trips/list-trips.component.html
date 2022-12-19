@@ -1,0 +1,20 @@
+<p *ngIf="!trips">
+  Sem Viagens Adicionadas...
+</p>
+
+<section class="container">
+  <!-- Grade de cartões -->
+  <div *ngFor="let trip of trips" class="container__content">
+     <div class="card">
+          <div
+           class="card__item">
+              <img class="card__item-image" [src]="trip.image" [alt]="trip.city"/>
+              <div class="card__item-options">
+                  <span class="options">{{trip.category}}</span>
+                  <span class="options">{{trip.details}}</span>
+              </div>
+              <img src="/assets/remove.png" alt="remove icon" (click)="remove(trip)" class="cancelButton"/>
+          </div>
+     </div>
+  </div>
+</section>

@@ -28,8 +28,6 @@ export class BookedTicketsService {
     const newReserve = {
       newReserve : trip
     }
-    console.log(id,"from bookedTickets service");
-    console.log(newReserve, "by bookedTickets")
     return this.httpClient.patch(`${API}/user/reserve/${id}`, newReserve);
   }
   // Remove Ticket

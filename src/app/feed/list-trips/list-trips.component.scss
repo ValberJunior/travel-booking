@@ -1,0 +1,46 @@
+@import '/src/abstract/abstract';
+
+.container{
+    @include screenSize(100%,auto);
+    @include displayFlex(center,center,column);
+    gap: 2em;
+    overflow-y: scroll;
+    background: $color14;
+    border-radius: .8em;
+    padding: 2em;
+    &__content{
+        @include screenSize(100%,auto);
+        @include displayFlex(center,center,row);
+        .card{
+            @include screenSize(100%,auto);
+            background: $color15;
+            border-radius: .8em;
+            @include cardShadow();
+            padding: 1.5em;
+            &__item{
+                cursor: pointer;
+                @include displayFlex(center, center, row);
+                &-image{
+                    @include screenSize(40%,200px);
+                }
+                &-options{
+                    @include screenSize(40%,auto);
+                    @include displayFlex(center, center, column);
+                    gap: .5em;
+                    padding: 1em 0;
+                    .options{
+                        background: $color7;
+                        padding: .5em;
+                        border-radius: .8em;
+                        border-color: $color6;
+                        color: $color2;
+                    }
+                }
+                .cancelButton{
+                    @include screenSize(15%,auto);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

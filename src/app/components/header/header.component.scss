@@ -44,6 +44,7 @@
         .tickets{
           @include screenSize(auto,auto);
           position: relative;
+          cursor: pointer;
           &__trips{
             position: absolute;
             right:0;

@@ -1,0 +1,61 @@
+@import '/src/abstract/abstract';
+
+.content{
+  @include screenSize(100vw,100vh);
+  background: $color1;
+  @include displayFlex(center, flex-start, row);
+  margin: 12em 0 2em 0;
+ &__wrapper{
+  @include screenSize(80%,auto);
+  @include displayFlex(space-around, center, row-reverse);
+  .details{
+    @include screenSize(40%,auto);
+    @include displayFlex(center, center, column);
+    background: $color15;
+    padding: 1em 2em;
+    border-radius: .8em;
+    &__titleWrapper{
+      @include screenSize(100%,auto);
+      @include displayFlex(center, center, row);
+      padding: 1.5em;
+      @include typography(22px,center,auto,600);
+    }
+    &__opt{
+      @include typography(19px,left,auto,500);
+      margin: .5em;
+      padding: .8em;
+      border-radius: .6em;
+      background: $color1;
+  }
+  .buttonWrapper{
+    padding: 1em 0;
+    @include screenSize(100%,auto);
+    @include displayFlex(space-between, center, row);
+    &__buy{
+      @include screenSize(45%,auto);
+      background: $color16;
+      border: 2px solid $color1;
+      color: $color1;
+      padding: 1em 0;
+      border-radius: .5em;
+      font-size: 1.3em;
+      cursor: pointer;
+    }
+    &__back{
+      @include screenSize(45%,auto);
+      background: $color6;
+      border: 2px solid $color1;
+      color: $color1;
+      padding: 1em 0;
+      border-radius: .5em;
+      font-size: 1.3em;
+      cursor: pointer;
+    }
+  }
+}
+  .cards{
+    @include screenSize(50%,100%);
+  }
+ }
+}
+
