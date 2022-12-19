@@ -26,16 +26,13 @@ export class AuthService {
     ).pipe(
       tap((res)=>{
         const authToken = res.headers.get('authorization-token');
-        console.log("Se tiver token -->>",authToken);
         if(authToken !== "" && authToken !== null) return this.userService.saveToken(authToken);
         else{
          const body : Object | any = res.body;
          const id = body._id;
-         console.log("Se não tiver token, será gerado para o ID:",id)
          this.httpClient.get(`${API}/user/returnToken/${id}`).subscribe(
           (res)=>{
             const token = JSON.stringify(res);
-            console.log("token gerado",token)
             return this.userService.saveToken(token);
           }
          )
